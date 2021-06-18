@@ -26,6 +26,17 @@ const options = {
         url: 'https://spdx.org/licenses/MIT.html',
       },
     },
+    schemes: ['https', 'http'],
+    securityDefinitions: {
+      Bearer: '',
+      type: 'apiKey',
+      name: 'Authorization',
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
     servers: [
       {
         url: URL_DOMAIN,

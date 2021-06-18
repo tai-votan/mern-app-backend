@@ -15,6 +15,10 @@ const posts = express.Router();
  * /api/post:
  *  get:
  *    tags: [Post]
+ *    parameters:
+ *      -in: header
+ *      name: Authorization
+ *      type: string
  *    responses:
  *      200:
  *        description: OK
@@ -25,6 +29,11 @@ const posts = express.Router();
  *    description: Retrieve a list of users from JSONPlaceholder. Can be used to populate a list of fake users when prototyping or testing an API.
  *  post:
  *    tags: [Post]
+ *    security:
+ *      bearerAuth:
+ *        type: http
+ *        scheme: bearer
+ *        bearerFormat: JWT
  *    responses:
  *      200:
  *        description: OK
@@ -75,6 +84,11 @@ const posts = express.Router();
  * /api/post/{slug}:
  *  get:
  *    tags: [Post]
+ *    security:
+ *      bearerAuth:
+ *        type: http
+ *        scheme: bearer
+ *        bearerFormat: JWT
  *    parameters:
  *      - in: path
  *        name: slug

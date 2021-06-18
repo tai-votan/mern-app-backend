@@ -44,7 +44,10 @@ const users = express.Router();
  *  get:
  *    tags: [User]
  *    security:
- *      bearerAuth: []
+ *      bearerAuth:
+ *        type: http
+ *        scheme: bearer
+ *        bearerFormat: JWT
  *    responses:
  *      200:
  *        description: OK
