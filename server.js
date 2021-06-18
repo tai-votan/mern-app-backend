@@ -10,7 +10,8 @@ import routers from './routes/index.js';
 const app = express();
 dotenv.config();
 
-const { PORT, URI } = process.env;
+const { PORT, URI, DOMAIN } = process.env;
+const URL_DOMAIN = DOMAIN || `http://localhost:${PORT}`;
 
 const options = {
   definition: {
@@ -27,7 +28,7 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`,
+        url: URL_DOMAIN,
       },
     ],
   },
