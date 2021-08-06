@@ -1,14 +1,13 @@
 import express from 'express';
-import { authToken } from '../services/TokenAuth.js';
 import {
   getPost,
   createPost,
   getPostBySlug,
   editPost,
   deletePost,
-} from '../controllers/postsControllers.js';
+} from '../controllers/postControllers.js';
 
-const posts = express.Router();
+const post = express.Router();
 
 /**
  * @swagger
@@ -103,11 +102,11 @@ const posts = express.Router();
  *    description: Retrieve a list of users from JSONPlaceholder. Can be used to populate a list of fake users when prototyping or testing an API.
  */
 
-posts.get('/', authToken, getPost).post('/', authToken, createPost);
+post.get('/', getPost).post('/', createPost);
 
-posts
-  .get('/:slug', authToken, getPostBySlug)
-  .put('/:slug', authToken, editPost)
-  .delete('/:slug', authToken, deletePost);
+post
+  .get('/:slug', getPostBySlug)
+  .put('/:slug', editPost)
+  .delete('/:slug', deletePost);
 
-export default posts;
+export default post;

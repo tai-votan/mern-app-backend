@@ -1,4 +1,3 @@
-import get from 'lodash/get.js';
 import PostModel from '../models/postModel.js';
 import { stripHTML, toSlug } from '../utils/utils.js';
 
@@ -68,7 +67,7 @@ export const createPost = async (req, res) => {
       excerpt,
       tags,
       categoryId,
-      metaTitle: metaTitle || title,
+      metaTitle: stripHTML(metaTitle || title),
       metaDescription: stripHTML(metaDescription || excerpt),
     };
     const post = new PostModel(docs);

@@ -10,37 +10,21 @@ const schema = mongoose.Schema(
       type: String,
       require: true,
     },
-    featuredImage: {
-      type: String,
-      default: '',
-    },
     oldSlug: {
       type: String,
       require: true,
     },
-    publish: {
-      type: Boolean,
-      require: true,
-    },
-    author: {
-      type: String,
-      require: true,
-    },
-    content: {
+    featuredImage: {
       type: String,
       default: '',
     },
-    excerpt: {
+    content: {
       type: String,
       default: '',
     },
     tags: {
       type: String,
       default: '',
-    },
-    categoryId: {
-      type: String,
-      require: true,
     },
     metaTitle: {
       type: String,
@@ -54,6 +38,6 @@ const schema = mongoose.Schema(
   { timestamps: true }
 );
 
-const PostModel = mongoose.model('Posts', schema);
+const CategoryModel = mongoose.model('Categories', schema);
 
-export default PostModel;
+export default CategoryModel;

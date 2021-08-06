@@ -1,13 +1,11 @@
 import express from 'express';
-import { authToken } from '../services/TokenAuth.js';
 import {
   getCurrentUser,
   createUser,
   deleteUser,
-  userLogin,
-} from '../controllers/usersControllers.js';
+} from '../controllers/userControllers.js';
 
-const users = express.Router();
+const user = express.Router();
 
 /**
  * @swagger
@@ -58,12 +56,10 @@ const users = express.Router();
  *    description: Retrieve a list of users from JSONPlaceholder. Can be used to populate a list of fake users when prototyping or testing an API.
  */
 
-users.get('/currentUser', authToken, getCurrentUser);
+user.get('/currentUser', getCurrentUser);
 
-users.post('/login', userLogin);
+user.post('/', createUser);
 
-users.post('/', createUser);
+user.delete('/:email', deleteUser);
 
-users.delete('/:email', deleteUser);
-
-export default users;
+export default user;

@@ -1,9 +1,11 @@
-import users from './users.js';
-import posts from './posts.js';
+import user from './user.js';
+import post from './post.js';
+import category from './category.js';
 
 const routers = {
-  '/api/user': users,
-  '/api/post': posts,
+  '/api/user': user,
+  '/api/post': post,
+  '/api/category': category,
 };
 
 export default routers;

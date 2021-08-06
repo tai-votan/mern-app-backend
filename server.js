@@ -6,6 +6,9 @@ import mongoose from 'mongoose';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import routers from './routes/index.js';
+import { userLogin } from './controllers/userControllers.js';
+import user from './routes/user.js';
+import { authToken } from './services/TokenAuth.js';
 
 const app = express();
 dotenv.config();
@@ -55,6 +58,10 @@ app.use(
   })
 );
 app.use(cors());
+
+app.use('/api/user/login', userLogin);
+
+app.use(authToken);
 
 Object.keys(routers).map((key) => app.use([key], routers[key]));
 
