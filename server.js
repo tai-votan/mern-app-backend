@@ -7,13 +7,12 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import routers from './routes/index.js';
 import { userLogin } from './controllers/userControllers.js';
-import user from './routes/user.js';
 import { authToken } from './services/TokenAuth.js';
 
 const app = express();
 dotenv.config();
 
-const { PORT, URI, DOMAIN } = process.env;
+const { PORT = 5000, URI, DOMAIN } = process.env;
 const URL_DOMAIN = DOMAIN || `http://localhost:${PORT}`;
 
 const options = {
